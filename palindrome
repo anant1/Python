@@ -1,14 +1,13 @@
-class Solution(object):
-    def isPalindrome(self, num):
-        n = num if num>0 else -num
-        rev = 0
-        while (n > 0):
-            dig = n % 10
-            rev = rev * 10 + dig
-            n = n / 10
-        if rev == n:
-            return True
-        else:
+class Solution:
+    def isPalindrome(self, x):
+        if x < 0:
             return False
+        copy, reverse = x, 0
         
+        while copy:
+            reverse *= 10
+            reverse += copy % 10
+            copy /= 10
+        
+        return x == reverse      
 s = Solution().isPalindrome(123321)
